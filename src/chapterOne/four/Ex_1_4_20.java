@@ -18,7 +18,7 @@ public class Ex_1_4_20 {
         if (a == null || a.length == 0) throw new RuntimeException("传入的数组为null或长度为0！");
 
         // 先找到局部最大元素的下标
-        int maxIndex = findMax(a);
+        int maxIndex = BitonicMax.max(a, 0, a.length);
 
         // 查找递增部分的元素中是否有k
         int[] a1 = new int[maxIndex + 1];
@@ -43,50 +43,9 @@ public class Ex_1_4_20 {
         return false;
     }
 
-    /**
-     * 找到双调数组中的最大值
-     *
-     * @param a
-     * @return
-     */
-    public static int findMax(int[] a) {
-        if (a == null || a.length == 0) throw new RuntimeException("传入的数组为null或长度为0！");
-
-        int N = a.length;
-        int low = 0;
-        int high = N - 1;
-
-        while (low < high) {
-            int index = (high + low) / 2;
-            if (index == 0) {
-                if (a[index] > a[index + 1]){
-                    return index;
-                }else{
-                    high = index;
-                }
-            }else if(index == N - 1){
-                if(a[index] > a[index - 1]){
-                    return index;
-                }else{
-                    low = index;
-                }
-            }else{
-                if(a[index] < a[index + 1]){
-                    low = index + 1;
-                }else if(a[index] < a[index - 1]){
-                    high = index - 1;
-                }else{
-                    return index;
-                }
-            }
-        }
-
-        return low;
-    }
-
     public static void main(String[] args) {
-        int[] a = {1,2,3,4,5,6,5,4,3};
+        int[] a = {1,2,3,4,5,7,5,4,3};
 
-        System.out.println(includeNum(a, 7));
+        System.out.println(includeNum(a, 5));
     }
 }
