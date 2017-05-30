@@ -1,0 +1,8 @@
+.idea/*
+build/*
+WebContent/WEB-INF/classes/*
+*.iml
+target/*
+out/*
+.idea
+build
