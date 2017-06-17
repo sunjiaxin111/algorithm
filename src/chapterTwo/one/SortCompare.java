@@ -1,5 +1,7 @@
 package chapterTwo.one;
 
+import chapterTwo.three.Quick;
+import chapterTwo.three.Quick3way;
 import chapterTwo.two.Merge;
 import stdlib.StdOut;
 import stdlib.StdRandom;
@@ -29,6 +31,10 @@ public class SortCompare {
             Shell.sort(a);
         } else if (Objects.equals(alg, "Merge")) {
             Merge.sort(a);
+        } else if (Objects.equals(alg, "Quick")) {
+            Quick.sort(a);
+        } else if (Objects.equals(alg, "Quick3way")) {
+            Quick3way.sort(a);
         }
         return timer.elapsedTime();
     }

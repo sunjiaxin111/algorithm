@@ -26,7 +26,7 @@ public class Merge {
         merge(a, lo, mid, hi);  //归并结果
     }
 
-    private static void merge(Comparable[] a, int lo, int mid, int hi) {
+    public static void merge(Comparable[] a, int lo, int mid, int hi) {
         // 将a[lo..mid]和a[mid+1..hi]归并
         int i = lo, j = mid + 1;
 
