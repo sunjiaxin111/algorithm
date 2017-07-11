@@ -23,6 +23,10 @@ public class SequentialSearchST<Key, Value> {
         }
     }
 
+    public boolean contains(Key key) {
+        return get(key) != null;
+    }
+
     public Value get(Key key) {
         // 查找给定的键，返回相关联的值
         for (Node x = first; x != null; x = x.next) {
