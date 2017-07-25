@@ -1,5 +1,8 @@
 package chapterFour.two;
 
+import chapterFour.four.DirectedEdge;
+import chapterFour.four.EdgeWeightedDigraph;
+
 /**
  * 拓扑排序
  * Created by sunjiaxin on 2017/7/20.
@@ -16,6 +19,32 @@ public class Topological {
 
             order = dfs.reversePost();
         }
+    }
+
+    public Topological(EdgeWeightedDigraph G) {
+        Digraph digraph = transform(G);
+        DirectedCycle cycle = new DirectedCycle(digraph);
+
+        if (!cycle.hasCycle()) {
+            DepthFirstOrder dfs = new DepthFirstOrder(digraph);
+
+            order = dfs.reversePost();
+        }
+    }
+
+    /**
+     * 把EdgeWeightedDigraph转换为Digraph
+     * @param G
+     * @return
+     */
+    private Digraph transform(EdgeWeightedDigraph G) {
+        Digraph digraph = new Digraph(G.V());
+        for (int v = 0; v < G.V(); v++) {
+            for (DirectedEdge e : G.adj(v)){
+                digraph.addEdge(e.from(), e.to());
+            }
+        }
+        return digraph;
     }
 
     public Iterable<Integer> order() {
